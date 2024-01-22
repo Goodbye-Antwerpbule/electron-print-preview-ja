@@ -1,6 +1,6 @@
-import {HtmlConstruct} from "./type";
-export default function (config: HtmlConstruct = {style: "", script: ""}) {
-    return `<!DOCTYPE html>
+import { HtmlConstruct } from "./type";
+export default function (config: HtmlConstruct = { style: "", script: "" }) {
+  return `<!DOCTYPE html>
             <html lang="ja">
             <head>
                 <meta charset="UTF-8" />
@@ -285,7 +285,6 @@ export default function (config: HtmlConstruct = {style: "", script: ""}) {
                                         class="printerSize devices" disabled="true"></select>
                                 </div>
                                 <div>
-                                    <div>
                                     <span>ズーム</span>
                                     <select onchange="debounceScale(this.options[this.selectedIndex].value)" class="printScale devices" disabled="false">
                                     <option value=50>50</option>
@@ -300,7 +299,6 @@ export default function (config: HtmlConstruct = {style: "", script: ""}) {
                                     <option value=140>140</option>
                                     <option value=150>150</option>
                                         </select>
-                                </div>
                                 </div>
                                 <div class="sys-print">
                                     <button onclick="printTwo(false)" disabled="false">
@@ -503,5 +501,5 @@ export default function (config: HtmlConstruct = {style: "", script: ""}) {
             <script>
             ${config.script}
             </script>
-            </html>`
+            </html>`;
 }
