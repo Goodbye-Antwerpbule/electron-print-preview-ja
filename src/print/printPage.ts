@@ -1,10 +1,10 @@
 import {HtmlConstruct} from "./type";
 export default function (config: HtmlConstruct = {style: "", script: ""}) {
     return `<!DOCTYPE html>
-            <html lang="en">
+            <html lang="ja">
             <head>
                 <meta charset="UTF-8" />
-                <title>打印</title>
+                <title>印刷</title>
                 <style>
                     .style_display_block {
                         display: block !important;
@@ -247,7 +247,7 @@ export default function (config: HtmlConstruct = {style: "", script: ""}) {
                         <iframe></iframe>
                         <div class="container-loading">
                             <div class="loader">
-                                正在加载预览
+                                プレビューを読み込んでいます
                                 <span class="dot dot-1">.</span>
                                 <span class="dot dot-2">.</span>
                                 <span class="dot dot-3">.</span>
@@ -255,48 +255,61 @@ export default function (config: HtmlConstruct = {style: "", script: ""}) {
                         </div>
                         <div class="options">
                             <div class="headerContainer">
-                                <h1 class="title">打印</h1>
+                                <h1 class="title">印刷</h1>
                             </div>
                             <div class="printOptions">
                                 <div>
-                                    <span>目标打印机</span>
+                                    <span>プレビュー</span>
                                     <select class="printers devices"
                                         onchange="changePrintDevice(this.options[this.selectedIndex].value)"></select>
                                 </div>
                                 <div>
-                                    <span>布局</span>
+                                    <span>レイアウト</span>
                                     <select class="layout devices" name="layout" disabled="true"
                                         onchange="changeSelectedLayout(this.options[this.selectedIndex].value)">
-                                        <option value="portrait" selected>纵向</option>
-                                        <option value="landscape">横向</option>
+                                        <option value="portrait" selected>縦</option>
+                                        <option value="landscape">横</option>
                                     </select>
                                 </div>
                                 <div>
-                                    <span>边距</span>
+                                    <span>余白</span>
                                     <select onchange="changeSelectedMargin(this.options[this.selectedIndex].value)"
                                         class="printerMargin devices" disabled="true">
-                                        <option value="10">默认</option>
-                                        <option value="0">无</option>
+                                        <option value="10">デフォルト</option>
+                                        <option value="0">なし</option>
                                     </select>
                                 </div>
                                 <div>
-                                    <span>纸张尺寸</span>
+                                    <span>サイズ</span>
                                     <select onchange="changeSelectedPageSize(this.options[this.selectedIndex].value)"
                                         class="printerSize devices" disabled="true"></select>
                                 </div>
                                 <div>
-                                    <span>缩放</span>
-                                    <input type="number" class="printScale devices" oninput="debounceScale(this.value)"
-                                        disabled="false" />
+                                    <div>
+                                    <span>ズーム</span>
+                                    <select onchange="debounceScale(this.options[this.selectedIndex].value)" class="printScale devices" disabled="false">
+                                    <option value=50>50</option>
+                                    <option value=60>60</option>
+                                    <option value=70>70</option>
+                                    <option value=80>80</option>
+                                    <option value=90>90</option>
+                                    <option value=100>100</option>
+                                    <option value=110>110</option>
+                                    <option value=120>120</option>
+                                    <option value=130>130</option>
+                                    <option value=140>140</option>
+                                    <option value=150>150</option>
+                                        </select>
+                                </div>
                                 </div>
                                 <div class="sys-print">
                                     <button onclick="printTwo(false)" disabled="false">
-                                        使用系统对话框打印
+                                        システムダイアログボックスを使用して印刷する
                                     </button>
                                 </div>
                             </div>
                             <div class="btn">
-                                <button class="print" onclick="printTwo(true)">打印</button>
+                                <button class="print" onclick="printTwo(true)">印刷</button>
                                 <button class="cancel" onclick="cancel()">取消</button>
                             </div>
                         </div>
